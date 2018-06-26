@@ -12,7 +12,7 @@
 * _getProductsQuantityByCategory()_ - should return quantity by some category
 * _getProductQuantity()_ - should return quantity of the product
 * _ addProduct()_ - adds product to the inventory.
-    * You should not be able to add product with the** same code twice**
+    * You should not be able to add product with the **same code twice**
 	* You should not be able to add product with **negative quantity**
 	* Product id should have **at least 6 characters** and should **have _FT_ prefix** for example FTXYZ1, FTXYZ2 etc.
 	* Product category **is mandatory**
