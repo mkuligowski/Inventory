@@ -3,11 +3,15 @@ package com.mkuligowski.inventory.service;
 import com.mkuligowski.inventory.domain.Category;
 import com.mkuligowski.inventory.domain.Inventory;
 import com.mkuligowski.inventory.domain.Product;
-import org.junit.Ignore;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.hamcrest.Matchers.is;
@@ -17,8 +21,13 @@ import static org.junit.Assert.*;
 @SpringBootTest
 public class InventoryServiceTest {
 
-    @Autowired
-    private InventoryService inventoryService; // initialize your InventoryService implementation
+    private InventoryService inventoryService;  // initialize your InventoryService implementation
+
+    @Before
+    public void create() {
+        ApplicationContext context = new AnnotationConfigApplicationContext("com.mkuligowski.inventory");
+        inventoryService = context.getBean(InventoryService.class);
+    }
 
     @Test(expected = Exception.class)
     public void addProduct_wrongCode() throws Exception {

@@ -6,6 +6,7 @@ import com.mkuligowski.inventory.domain.Product;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -15,14 +16,17 @@ import java.math.BigDecimal;
 @SpringBootTest
 public class ShopServiceTest {
 
-    private Inventory inventory = new Inventory();
-    private ShopService shopService = new ShopService();
+    @Autowired
+    private Inventory inventory;
+
+    @Autowired
+    private ShopService shopService;
 
     @Test
     public void testGetTotalPrice() throws Exception {
         //Given
         Product product1 = new Product();
-        product1.setCategory(Category.ELECTRONICS);
+        product1.setCategory(Category.APPLIANCES);
         product1.setId("FTXYZ123");
         product1.setPrice(new BigDecimal("10.0"));
         Product product2 = new Product();
@@ -42,7 +46,6 @@ public class ShopServiceTest {
         BigDecimal totalPrice = shopService.getTotalPriceProducts(inventory.getProducts());
 
         //Then
-        System.out.println(totalPrice);
         Assert.assertEquals(expectedPrice, totalPrice);
 
     }
