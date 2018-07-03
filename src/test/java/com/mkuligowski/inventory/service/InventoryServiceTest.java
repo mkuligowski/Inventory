@@ -3,18 +3,25 @@ package com.mkuligowski.inventory.service;
 import com.mkuligowski.inventory.domain.Category;
 import com.mkuligowski.inventory.domain.Inventory;
 import com.mkuligowski.inventory.domain.Product;
+import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class InventoryServiceTest {
 
+    @Autowired
     private InventoryService inventoryService; // initialize your InventoryService implementation
 
-
     @Test(expected = Exception.class)
-    public void addProduct_wrongCode() {
+    public void addProduct_wrongCode() throws Exception {
         Product product = new Product();
         product.setCategory(Category.ELECTRONICS);
         product.setId("X");
@@ -23,7 +30,7 @@ public class InventoryServiceTest {
     }
 
     @Test(expected = Exception.class)
-    public void addProduct_wrongQuantity() {
+    public void addProduct_wrongQuantity() throws Exception {
         Product product = new Product();
         product.setCategory(Category.ELECTRONICS);
         product.setId("FTXYZ123");
@@ -32,7 +39,7 @@ public class InventoryServiceTest {
     }
 
     @Test(expected = Exception.class)
-    public void addProduct_noCategory() {
+    public void addProduct_noCategory() throws Exception {
         Product product = new Product();
         product.setId("FTXYZ123");
 
@@ -40,7 +47,7 @@ public class InventoryServiceTest {
     }
 
     @Test(expected = Exception.class)
-    public void testAddProduct_sameProductTwice() {
+    public void testAddProduct_sameProductTwice() throws Exception{
         Product product1 = new Product();
         product1.setCategory(Category.ELECTRONICS);
         product1.setId("FTXYZ123");
@@ -54,7 +61,7 @@ public class InventoryServiceTest {
     }
 
     @Test
-    public void testAddProduct() {
+    public void testAddProduct() throws Exception {
         Product product1 = new Product();
         product1.setCategory(Category.ELECTRONICS);
         product1.setId("FTXYZ123");
@@ -64,7 +71,7 @@ public class InventoryServiceTest {
     }
 
     @Test
-    public void testUpdateProduct() {
+    public void testUpdateProduct() throws Exception {
         Product product1 = new Product();
         product1.setCategory(Category.ELECTRONICS);
         product1.setId("FTXYZ123");
@@ -78,7 +85,7 @@ public class InventoryServiceTest {
     }
 
     @Test(expected = Exception.class)
-    public void testUpdateProduct_wrongQuantity() {
+    public void testUpdateProduct_wrongQuantity() throws Exception {
         Product product1 = new Product();
         product1.setCategory(Category.ELECTRONICS);
         product1.setId("FTXYZ123");
@@ -90,7 +97,7 @@ public class InventoryServiceTest {
     }
 
     @Test
-    public void testGetTotalQuantity() {
+    public void testGetTotalQuantity() throws Exception {
         Product product1 = new Product();
         product1.setCategory(Category.ELECTRONICS);
         product1.setId("FTXYZ123");
@@ -104,7 +111,7 @@ public class InventoryServiceTest {
     }
 
     @Test
-    public void testGetProductsQuantityByCategory() {
+    public void testGetProductsQuantityByCategory() throws Exception {
         Product product1 = new Product();
         product1.setCategory(Category.ELECTRONICS);
         product1.setId("FTXYZ123");
