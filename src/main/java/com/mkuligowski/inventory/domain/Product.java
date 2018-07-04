@@ -9,7 +9,6 @@ import java.util.Objects;
 
 @Getter
 @Setter
-@NoArgsConstructor
 public class Product {
     private String id;
     private Category category;

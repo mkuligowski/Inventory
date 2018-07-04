@@ -24,7 +24,7 @@ public class InventoryServiceTest {
     private InventoryService inventoryService;  // initialize your InventoryService implementation
 
     @Before
-    public void intalizeInventoryService() {
+    public void initializeInventoryService() {
         ApplicationContext context = new AnnotationConfigApplicationContext("com.mkuligowski.inventory");
         inventoryService = context.getBean(Inventory.class);
     }
