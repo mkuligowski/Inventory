@@ -2,17 +2,14 @@ package com.mkuligowski.inventory.domain;
 
 import com.mkuligowski.inventory.service.InventoryService;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
 @Setter
 @Getter
-@NoArgsConstructor
 @Component
 public class Inventory implements InventoryService {
     private String name;

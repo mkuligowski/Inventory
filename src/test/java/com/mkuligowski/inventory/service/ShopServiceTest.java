@@ -26,9 +26,9 @@ public class ShopServiceTest {
     public void testGetTotalPrice() throws Exception {
         //Given
         Product product1 = new Product();
-        product1.setCategory(Category.APPLIANCES);
+        product1.setCategory(Category.MOBILE);
         product1.setId("FTXYZ123");
-        product1.setPrice(new BigDecimal("10.0"));
+        product1.setPrice(new BigDecimal("10.01"));
         Product product2 = new Product();
         product2.setCategory(Category.APPLIANCES);
         product2.setId("FTXYZ234");
@@ -42,7 +42,7 @@ public class ShopServiceTest {
         inventory.addProduct(product3, 7);
 
         //When
-        BigDecimal expectedPrice = new BigDecimal("290.7");
+        BigDecimal expectedPrice = new BigDecimal("290.72");
         BigDecimal totalPrice = shopService.getTotalPriceProducts(inventory.getProducts());
 
         //Then

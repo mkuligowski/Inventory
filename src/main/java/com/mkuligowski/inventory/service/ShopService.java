@@ -9,9 +9,8 @@ import java.util.List;
 @Component
 public class ShopService {
     public BigDecimal getTotalPriceProducts(List<Product> products) {
-        BigDecimal price = products.stream()
+        return products.stream()
                 .map(p -> p.getPrice().multiply(new BigDecimal(String.valueOf(p.getQuantity()))))
                 .reduce(BigDecimal.ZERO,(sum, current) -> sum = sum.add(current));
-        return price;
     }
 }
