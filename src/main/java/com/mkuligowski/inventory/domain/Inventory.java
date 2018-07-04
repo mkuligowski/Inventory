@@ -38,9 +38,10 @@ public class Inventory implements InventoryService {
     @Override
     public void addProduct(Product product, Integer quantity) throws Exception {
         Product product1 = product;
-        if(quantity >=0 && !(getProducts().contains(product)) &&
-                        product.getId().length() >= 6 &&
-                        product.getId().substring(0,2).equals("FT") &&
+        if(quantity >=0 &&
+                !(getProducts().contains(product)) &&
+                product.getId().length() >= 6 &&
+                product.getId().substring(0,2).equals("FT") &&
                 !(product.getCategory().equals(""))) {
             product1.setQuantity(quantity);
             getProducts().add(product1);
