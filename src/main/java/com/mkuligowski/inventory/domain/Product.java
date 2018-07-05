@@ -12,7 +12,6 @@ import java.util.Objects;
 public class Product {
     private String id;
     private Category category;
-    private int quantity;
     private BigDecimal price;
 
     @Override

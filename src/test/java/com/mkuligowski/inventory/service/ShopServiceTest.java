@@ -2,8 +2,10 @@ package com.mkuligowski.inventory.service;
 
 import com.mkuligowski.inventory.domain.Category;
 import com.mkuligowski.inventory.domain.Inventory;
+import com.mkuligowski.inventory.domain.Item;
 import com.mkuligowski.inventory.domain.Product;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -21,6 +25,9 @@ public class ShopServiceTest {
 
     @Autowired
     private ShopService shopService;
+
+    @Autowired
+    private Item item;
 
     @Test
     public void testGetTotalPrice() throws Exception {
@@ -40,13 +47,14 @@ public class ShopServiceTest {
         inventory.addProduct(product1, 2);
         inventory.addProduct(product2, 3);
         inventory.addProduct(product3, 7);
+        List<Item> items = item.setItem(inventory.getProducts());
+
 
         //When
         BigDecimal expectedPrice = new BigDecimal("290.72");
-        BigDecimal totalPrice = shopService.getTotalPriceProducts(inventory.getProducts());
+        BigDecimal totalPrice = shopService.getTotalPriceProducts(items);
 
         //Then
         Assert.assertEquals(expectedPrice, totalPrice);
-
     }
 }

@@ -3,6 +3,7 @@ package com.mkuligowski.inventory.service;
 import com.mkuligowski.inventory.domain.Category;
 import com.mkuligowski.inventory.domain.Inventory;
 import com.mkuligowski.inventory.domain.Product;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
