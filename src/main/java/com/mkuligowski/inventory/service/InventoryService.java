@@ -7,6 +7,6 @@ public interface InventoryService {
     Integer getTotalQuantity();
     Integer getProductsQuantityByCategory(Category category);
     Integer getProductQuantity(Product product);
-    void addProduct(Product product, Integer quantity);
-    void setProductQuantity(Product product, Integer quantity);
+    void addProduct(Product product, Integer quantity) throws Exception;
+    void setProductQuantity(Product product, Integer quantity) throws Exception;
 }

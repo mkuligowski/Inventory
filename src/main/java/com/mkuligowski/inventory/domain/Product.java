@@ -1,27 +1,18 @@
 package com.mkuligowski.inventory.domain;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.math.BigDecimal;
 import java.util.Objects;
 
+@Getter
+@Setter
 public class Product {
-
     private String id;
     private Category category;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
+    private BigDecimal price;
 
     @Override
     public boolean equals(Object o) {
@@ -34,7 +25,6 @@ public class Product {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(id, category);
     }
 }
