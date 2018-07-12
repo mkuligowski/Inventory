@@ -1,15 +1,15 @@
 package com.mkuligowski.inventory.domain;
 
-import com.mkuligowski.inventory.service.InventoryService;
 import com.sun.org.apache.bcel.internal.classfile.ClassFormatException;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 public class Product {
 
     private String id;
     private Category category;
-    private float price;
+    private BigDecimal price=BigDecimal.ZERO;
 
     public String getId() {
         return id;
@@ -54,11 +54,11 @@ public class Product {
         return Objects.hash(id, category);
     }
 
-    public float getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 }

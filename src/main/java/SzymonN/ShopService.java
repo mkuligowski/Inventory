@@ -1,17 +1,22 @@
 package SzymonN;
 
 import com.mkuligowski.inventory.domain.Product;
+import com.mkuligowski.inventory.domain.SlotProduct;
 
-import java.util.ArrayList;
+import java.math.BigDecimal;
 import java.util.List;
 
 public class ShopService {
 
-    public double ValueOfAllProducts(List<Product> products)
+    public BigDecimal ValueOfAllProducts(List<SlotProduct> slotsOfProducts)
     {
-        double sum_price=0;
-        for (Product p:products)
-            sum_price+=p.getPrice();
-        return sum_price;
+        BigDecimal itemCost;
+        BigDecimal totalCost = BigDecimal.ZERO;
+
+        for (SlotProduct s:slotsOfProducts) {
+            itemCost  = s.getProduct().getPrice().multiply(new BigDecimal(s.getQuantity()));
+            totalCost = totalCost.add(itemCost);
+        }
+        return totalCost;
     }
 }
