@@ -3,6 +3,7 @@ package com.mkuligowski.inventory.service;
 import com.mkuligowski.inventory.domain.Category;
 import com.mkuligowski.inventory.domain.Inventory;
 import com.mkuligowski.inventory.domain.Product;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;
@@ -10,15 +11,13 @@ import static org.junit.Assert.*;
 
 public class InventoryServiceTest {
 
-    private InventoryService inventoryService; // initialize your InventoryService implementation
-
+    private InventoryService inventoryService = new Inventory("MyBackpack");
 
     @Test(expected = Exception.class)
-    public void addProduct_wrongCode() {
+    public void addProduct_wrongCode(){
         Product product = new Product();
         product.setCategory(Category.ELECTRONICS);
         product.setId("X");
-
         inventoryService.addProduct(product, 1);
     }
 
@@ -27,7 +26,6 @@ public class InventoryServiceTest {
         Product product = new Product();
         product.setCategory(Category.ELECTRONICS);
         product.setId("FTXYZ123");
-
         inventoryService.addProduct(product, -1);
     }
 
