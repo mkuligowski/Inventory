@@ -1,4 +1,4 @@
-# Inventory Service
+# Inventory Service v2
 
 ### 1. Setup
 * Fork the repository (https://help.github.com/articles/fork-a-repo/)
@@ -10,14 +10,14 @@
 * Create implementation of the __InventoryService__
 * _getTotalQuantity()_ - should return total quantity of all products
 * _getProductsQuantityByCategory()_ - should return quantity by some category
-* _getProductQuantity()_ - should return quantity of the product
 * _addProduct()_ - adds product to the inventory.
-    * You should not be able to add product with the **same code twice**
-	* You should not be able to add product with **negative quantity**
-	* Product id should have **at least 6 characters** and should **have _FT_ prefix** for example FTXYZ1, FTXYZ2 etc.
+    * Product ID should be assigned automatically, and should be unique for each Product
+	* Product code should have **at least 6 characters** and should **have _FT_ prefix** for example FTCARPET, FTMOBILE etc.
 	* Product category **is mandatory**
-* _setProductQuantity()_ - updates product quantity
-	* You should not be able to update product with **negative quantity**
+	* When expiration date is not provided, then it should be one month greater than the date the product was added
+* _getProduct()_ - should return product by code
+	* When more then one product exists with same code, then one with earlier expiration date is returned
+* _getExpiredProducts()_ should return list of products with expiration date less than current date
 
 When ready, please initialize your _InventoryService_ service in _InventoryServiceTest_. For example:
 
