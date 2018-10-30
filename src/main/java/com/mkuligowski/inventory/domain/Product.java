@@ -5,16 +5,13 @@ import java.util.Objects;
 
 public class Product {
 
-    private String id;
+    private Long id;
     private Category category;
+    private String code;
     private LocalDate expirationDate;
 
-    public String getId() {
+    public Long getId() {
         return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public Category getCategory() {
@@ -31,6 +28,14 @@ public class Product {
 
     public void setExpirationDate(LocalDate expirationDate) {
         this.expirationDate = expirationDate;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     @Override
