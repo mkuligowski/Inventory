@@ -1,11 +1,13 @@
 package com.mkuligowski.inventory.domain;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class Product {
 
     private String id;
     private Category category;
+    private LocalDate expirationDate;
 
     public String getId() {
         return id;
@@ -21,6 +23,14 @@ public class Product {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public LocalDate getExpirationDate() {
+        return expirationDate;
+    }
+
+    public void setExpirationDate(LocalDate expirationDate) {
+        this.expirationDate = expirationDate;
     }
 
     @Override
