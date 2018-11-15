@@ -23,8 +23,10 @@ public class InventoryServiceTest {
         product2.setCategory(Category.APPLIANCES);
         product2.setCode("FTXYZ234");
         Product product3 = new Product();
-        product2.setCategory(Category.MOBILE);
-        product2.setCode("FTXYZ231");
+     //   product2.setCategory(Category.MOBILE);    mistake? should be product3.
+     //   product2.setCode("FTXYZ231");             mistake? should be product3.
+        product3.setCategory(Category.MOBILE); // correct?
+        product3.setCode("FTXYZ231");          // correct?
         inventoryService.addProduct(product1);
         inventoryService.addProduct(product2);
         inventoryService.addProduct(product3);
@@ -133,8 +135,16 @@ public class InventoryServiceTest {
         product2.setCode("FTXYZ234");
         product2.setExpirationDate(LocalDate.now().minusDays(5));
         Product product3 = new Product();
-        product2.setCategory(Category.MOBILE);
-        product2.setCode("FTXYZ231");
+    //    product2.setCategory(Category.MOBILE);    mistake? should be product3.
+    //    product2.setCode("FTXYZ231");             mistake? should be product3.
+
+        product3.setCategory(Category.MOBILE);   // correct?
+        product3.setCode("FTXYZ231");            // correct?
+
+
+        product3.setCategory(Category.MOBILE);
+        product3.setCode("FTXYZ231");
+
         inventoryService.addProduct(product1);
         inventoryService.addProduct(product2);
         inventoryService.addProduct(product3);
