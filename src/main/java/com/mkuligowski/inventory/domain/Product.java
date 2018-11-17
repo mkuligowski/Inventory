@@ -6,9 +6,27 @@ import java.util.Objects;
 public class Product {
 
     private Long id;
+    private static Long nextId=0L;
     private Category category;
     private String code;
     private LocalDate expirationDate;
+    private Float price;
+
+
+    public Product()
+    {
+        id=nextId++;
+
+    }
+
+    public Float getPrice() {
+        return price;
+    }
+
+    public void setPrice(Float price) {
+        this.price = price;
+    }
+
 
     public Long getId() {
         return id;
@@ -52,4 +70,8 @@ public class Product {
 
         return Objects.hash(id, category);
     }
+
+
+
+
 }

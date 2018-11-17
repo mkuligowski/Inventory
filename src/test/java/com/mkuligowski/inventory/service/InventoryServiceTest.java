@@ -4,15 +4,25 @@ import com.mkuligowski.inventory.domain.Category;
 import com.mkuligowski.inventory.domain.Inventory;
 import com.mkuligowski.inventory.domain.Product;
 import org.junit.Test;
+import org.junit.Before;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
 
 public class InventoryServiceTest {
 
-    private InventoryService inventoryService; // initialize your InventoryService implementation
+    private InventoryService inventoryService  ;  // initialize your InventoryService implementation
+
+    @Before
+    public void setUp() throws Exception {
+        Inventory inventory = new Inventory();
+        inventory.setName("TestInventory");
+        inventory.setProducts(new ArrayList<>());
+        inventoryService = new MyInventoryService(inventory);
+    }
 
     @Test
     public void testGetTotalQuantity() {
@@ -65,7 +75,8 @@ public class InventoryServiceTest {
         product2.setCode("FT1987654");
 
         inventoryService.addProduct(product);
-        inventoryService.addProduct(product);
+      //  inventoryService.addProduct(product); mistake? should be product2.
+        inventoryService.addProduct(product2);
 
         product = inventoryService.getProduct("FT1234567");
         product2 = inventoryService.getProduct("FT1987654");
@@ -140,10 +151,6 @@ public class InventoryServiceTest {
 
         product3.setCategory(Category.MOBILE);   // correct?
         product3.setCode("FTXYZ231");            // correct?
-
-
-        product3.setCategory(Category.MOBILE);
-        product3.setCode("FTXYZ231");
 
         inventoryService.addProduct(product1);
         inventoryService.addProduct(product2);

@@ -11,4 +11,5 @@ public interface InventoryService {
     Product getProduct(String code);
     void addProduct(Product product);
     List<Product> getExpiredProducts();
+    List<Product> getAllProducts();
 }
